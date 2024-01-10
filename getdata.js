@@ -1,14 +1,14 @@
 export const getData = () => {
-    document.getElementById('send-btn').addEventListener('click', () => sendPost());
+    document.getElementById('send').addEventListener('click', () => sendPost());
 
     showPosts();
     showPostDetails();
 }
 
 const sendPost = async () => {
-    const id = document.getElementById('new-post-id').value;
-    const title = document.getElementById('new-post-title').value;
-    const body = document.getElementById('new-post-body').value;
+    const id = document.getElementById('new-id').value;
+    const title = document.getElementById('new-title').value;
+    const body = document.getElementById('new-body').value;
     const post = {
         title,
         body,
@@ -24,8 +24,8 @@ const sendPost = async () => {
 }
 
 const showPost = (post) => {
-    const titleElement = document.getElementById('post-title');
-    const bodyElement = document.getElementById('post-body');
+    const titleElement = document.getElementById('title');
+    const bodyElement = document.getElementById('body');
 
     titleElement.innerText = post.title;
     bodyElement.innerText = post.body;
@@ -56,7 +56,7 @@ const showPosts = async () => {
 }
 
 const showPostDetails = async () => {
-    const postDetailsElement = document.getElementById('post-details');
+    const postDetailsElement = document.getElementById('details');
     postDetailsElement.innerHTML = '';
 
     const posts = await Promise.all([
